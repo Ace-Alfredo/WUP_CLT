@@ -105,7 +105,7 @@ p + ggtitle("n = 9") +
 
 print(paste('mean = ', mean(my1000$k16),' sd = ',sd(my1000$k16)))
 ```
-  The previous graph hows that the closer the mean is to 50 the standard deviation decreases which is what the CL theory is based on. since the 41.83 standard deviation was devided by square root of 9(this is the sample size) it equals almost 13.9, closely. but the graph is getting more and more symetrical.
+  The previous graph hows that the closer the mean is to 50 the standard deviation decreases which is what the CL theory is based on. since the 41.83 standard deviation was divided by square root of 9(this is the sample size) it equals almost 13.9, closely enough to 14. but the graph is getting more and more symmetrical.
    
 ```{r}
 numb = 16
