@@ -85,5 +85,92 @@ print(paste('mean = ', mean(my1000$k4),' sd = ',sd(my1000$k4)))
 ```
 
 ### In this case the stdev was cut in half because the sample size was four. This is what the central limit theorem says. There are also 5 peaks. They go from FFFF,to FFFM, to FFMM to FMMM and finally MMMM.
+  
+```{r}
+numb = 9
+Hdata = Homers_data[sample(1:1000,size=numb*1000, replace=T),"kkardashtemp"]
+mdata  <-matrix(Hdata,nrow=1000,ncol=numb)
+x.avg <- apply(mdata,1,mean)
+my1000$k9 = x.avg
 
-# Now finish by adding blocks with numb being 9, then 16, 25, and 36. be sure to mention how the standard deviation progresses as the sample size changes,
+
+p <- ggplot(my1000, aes(x=k9),(col=sex)) + 
+  geom_density() +
+
+# Add mean line
+ geom_vline(aes(xintercept=mean(k9)),
+            color="blue", linetype="dashed", size=1)
+p + ggtitle("n = 9") +
+  xlab("temperature") + ylab(" density")
+
+print(paste('mean = ', mean(my1000$k16),' sd = ',sd(my1000$k16)))
+```
+  The previous graph hows that the closer the mean is to 50 the standard deviation decreases which is what the CL theory is based on. since the 41.83 standard deviation was devided by square root of 9(this is the sample size) it equals almost 13.9, closely. but the graph is getting more and more symetrical.
+   
+```{r}
+numb = 16
+Hdata = Homers_data[sample(1:1000,size=numb*1000, replace=T),"kkardashtemp"]
+mdata  <-matrix(Hdata,nrow=1000,ncol=numb)
+x.avg <- apply(mdata,1,mean)
+my1000$k16 = x.avg
+
+
+p <- ggplot(my1000, aes(x=k16),(col=sex)) + 
+  geom_density() +
+
+# Add mean line
+ geom_vline(aes(xintercept=mean(k16)),
+            color="blue", linetype="dashed", size=1)
+p + ggtitle("n = 16") +
+  xlab("temperature") + ylab(" density")
+
+print(paste('mean = ', mean(my1000$k16),' sd = ',sd(my1000$k16)))
+``` 
+   
+now using the square root of 16 for this graph we can now see it becoming more and more symmetrical. This is because of the more opinion discrepancies.   
+   
+```{r}
+numb = 25
+Hdata = Homers_data[sample(1:1000,size=numb*1000, replace=T),"kkardashtemp"]
+mdata  <-matrix(Hdata,nrow=1000,ncol=numb)
+x.avg <- apply(mdata,1,mean)
+my1000$k25 = x.avg
+
+
+p <- ggplot(my1000, aes(x=k25),(col=sex)) + 
+  geom_density() +
+
+# Add mean line
+ geom_vline(aes(xintercept=mean(k25)),
+            color="blue", linetype="dashed", size=1)
+p + ggtitle("n = 25") +
+  xlab("temperature") + ylab(" density")
+
+print(paste('mean = ', mean(my1000$k25),' sd = ',sd(my1000$k25)))
+```    
+
+The square root is now 25 and still at 25 the standard deviation starts to decrease since it is a larger number. but also gives more chance of discrepancies. 
+   
+   
+```{r}
+numb = 36
+Hdata = Homers_data[sample(1:1000,size=numb*1000, replace=T),"kkardashtemp"]
+mdata  <-matrix(Hdata,nrow=1000,ncol=numb)
+x.avg <- apply(mdata,1,mean)
+my1000$k36 = x.avg
+
+
+p <- ggplot(my1000, aes(x=k36),(col=sex)) + 
+  geom_density() +
+
+# Add mean line
+ geom_vline(aes(xintercept=mean(k25)),
+            color="blue", linetype="dashed", size=1)
+p + ggtitle("n = 36") +
+  xlab("temperature") + ylab(" density")
+
+print(paste('mean = ', mean(my1000$k36),' sd = ',sd(my1000$k36)))
+```     
+ 
+The graph looks more symmetrical since the square root is 36 which always makes it have more opinion discrepancies. Everytime the number get larger and larger the standard deviation is decreasing. Which now this all proves that the central limited theory  
+   
